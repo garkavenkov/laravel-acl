@@ -1,0 +1,39 @@
+{
+    "name": "garkavenkov/laravel-acl",
+    "description": "Role-based permission manager for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Garkavenkov\\LaravelAcl\\": "src/",
+            "Garkavenkov\\LaravelAcl\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Garkavenkov\\LaravelAcl\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maksim Garkavenkov",
+            "email": "maksim.garkavenkov@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Garkavenkov\\LaravelAcl\\LaravelAclServicewProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "^7",
+        "phpunit/phpunit": "^9"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "test-f": "vendor/bin/phpunit --testdox --filter"
+    }    
+}
