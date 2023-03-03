@@ -10,7 +10,7 @@ class Role extends Model
 {
     use HasFactory, HasPermissions;
 
-    protected $guarder = [];
+    protected $guarded = [];
    
     public function users()
     {

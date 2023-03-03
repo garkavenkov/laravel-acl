@@ -9,7 +9,7 @@ class Permission extends Model
 {
     use HasFactory;
 
-    protected $guarder = [];
+    protected $guarded = [];
 
     public function roles()
     {
