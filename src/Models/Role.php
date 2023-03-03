@@ -2,12 +2,18 @@
 
 namespace Garkavenkov\LaravelAcl\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Garkavenkov\LaravelAcl\Traits\HasPermissions;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Role extends Model
 {
-    use HasFactory;
+    use HasFactory, HasPermissions;
 
     protected $guarder = [];
+   
+    public function users()
+    {
+        return $this->belongsToMany(config('auth.providers.users.model'), 'user_role');
+    }
 }

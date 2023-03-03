@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->string('name')->unique();
-            $table->string('description');
-            $table->string('error')->nullable()->comment('Error message if user has no right to this permission');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('role_id');            
             $table->timestamps();
+
+            //SETTING THE PRIMARY KEYS
+            //  $table->unique(['owner_id', 'owner_type', 'permission_id']);
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        Schema::dropIfExists('user_role');
     }
 };

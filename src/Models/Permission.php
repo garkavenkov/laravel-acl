@@ -10,4 +10,14 @@ class Permission extends Model
     use HasFactory;
 
     protected $guarder = [];
+
+    public function roles()
+    {
+        return $this->morphedByMany(Role::class, 'owner', 'acl');
+    }
+
+    public function assignTo(Model $model)
+    {
+        $this->roles()->attach($model);
+    }
 }

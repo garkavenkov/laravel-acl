@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Garkavenkov\\LaravelAcl\\LaravelAclServicewProvider"
+                "Garkavenkov\\LaravelAcl\\LaravelAclServiceProvider"
             ]
         }
     },
@@ -34,6 +34,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit --testdox",
+        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-html coverage.html",
         "test-f": "vendor/bin/phpunit --testdox --filter"
     }    
 }

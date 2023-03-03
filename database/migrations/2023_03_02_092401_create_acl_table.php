@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
-            $table->id();
-            $table->string('code')->unique();
-            $table->string('name')->unique();
-            $table->string('description');
-            $table->string('error')->nullable()->comment('Error message if user has no right to this permission');
+        Schema::create('acl', function (Blueprint $table) {
+            $table->id();            
+            $table->unsignedBigInteger('owner_id');
+            $table->string('owner_type');
+            $table->unsignedBigInteger('permission_id');
             $table->timestamps();
+
+             //SETTING THE PRIMARY KEYS
+             $table->unique(['owner_id', 'owner_type', 'permission_id']);
         });
     }
 
